@@ -10,7 +10,7 @@ WHATSAPP_ACCESS_TOKEN = os.environ.get("WHATSAPP_ACCESS_TOKEN")
 def home():
     return "Bot de WhatsApp en línea", 200
 
-@app.route("/webhook", methods=["GET"])
+@app.route("/webhook_valido", methods=["GET"])
 def verify_webhook():
     mode = request.args.get("hub.mode")
     token = request.args.get("hub.verify_token")
@@ -23,7 +23,7 @@ def verify_webhook():
             return "Token incorrecto", 403
     return "Parámetros inválidos", 400
 
-@app.route("/webhook", methods=["POST"])
+@app.route("/webhook_valido", methods=["POST"])
 def receive_message():
     data = request.get_json()
     print("Datos recibidos de WhatsApp:", data)
