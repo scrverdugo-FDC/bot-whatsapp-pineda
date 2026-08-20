@@ -29,7 +29,6 @@ def receive_message():
     print("Datos recibidos de WhatsApp:", data)
     
     try:
-        # Aquí es donde el bot procesa el mensaje que te envían
         entry = data.get("entry", [])[0]
         changes = entry.get("changes", [])[0]
         value = changes.get("value", {})
@@ -41,7 +40,6 @@ def receive_message():
             msg_body = messages[0].get("text", {}).get("body")
             
             print(f"Mensaje de {from_number}: {msg_body}")
-            # Aquí puedes agregar la lógica para responder de vuelta si lo deseas
             
     except Exception as e:
         print("Error al procesar el mensaje:", e)
